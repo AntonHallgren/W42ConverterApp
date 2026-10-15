@@ -78,6 +78,15 @@ public class UserInterface {
         }
     }
 
+    public void printHistory()
+    {
+        IO.println("=== Conversion History ===");
+        IO.print(history);
+        IO.println(thickLine);
+
+        IO.println("Goodbye!");
+    }
+
     public boolean isExitRequested() {
         return exitRequested;
     }
