@@ -18,7 +18,7 @@ public class UnitType
 
     public String handleRequest()
     {
-        IO.println("--- " + name + " Converter ---");
+        IO.println("--- " + extendedName() + " ---");
         IO.println("Convert:");
         for(int i = 0; i < converters.length; i++)
         {
@@ -33,6 +33,10 @@ public class UnitType
         return resultString;
     }
 
+    public String extendedName()
+    {
+        return name + " Converter";
+    }
 
     public static UnitType length()
     {

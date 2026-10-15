@@ -5,9 +5,11 @@ public class UserInterface {
 
     private boolean exitRequested = false;
 
-    private final UnitType length = UnitType.length();
-    private final UnitType weight = UnitType.weight();
-    private final UnitType time = UnitType.time();
+    private final UnitType[] subPrograms = {
+            UnitType.length(),
+            UnitType.weight(),
+            UnitType.time()
+    };
 
     private final StringBuilder history = new StringBuilder();
 
@@ -35,24 +37,22 @@ public class UserInterface {
         IO.println(thickLine);
         int choice = pickOption("Choose an option: ", 4);
         IO.println();
-        switch(choice)
+        if(choice < subPrograms.length)
         {
-            case 0 -> history.append(length.handleRequest());
-            case 1 -> history.append(weight.handleRequest());
-            case 2 -> history.append(time.handleRequest());
-            case 3 -> exitRequested = true;
+            history.append(subPrograms[choice].handleRequest());
         }
-
-
-
+        else {
+            exitRequested = true;
+        }
     }
 
     private void printOptionsList()
     {
-        IO.println("1. Length Converter");
-        IO.println("2. Weight Converter");
-        IO.println("3. Time Converter");
-        IO.println("4. Exit");
+        for(int i = 0; i < subPrograms.length; i++)
+        {
+            IO.println(String.format("%d. %s", i+1, subPrograms[i].extendedName()));
+        }
+        IO.println(String.format("%d. Exit", subPrograms.length+1));
     }
 
     private void askContinue()
