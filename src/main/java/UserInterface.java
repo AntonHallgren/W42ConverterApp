@@ -43,7 +43,7 @@ public class UserInterface {
     {
         printOptionsList();
         IO.println(thickLine);
-        int choice = pickOption("Choose an option: ", 4);
+        int choice = pickOption("Choose an option: ", subPrograms.length+1);
         IO.println();
         if(choice < subPrograms.length)
         {
