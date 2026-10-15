@@ -3,7 +3,9 @@ public class UserInterface {
     private static final String thickLine = "=============================";
     private static final String title = "\tLEXICON CONVERTER APP";
 
+    private int numberOfConversions = 0;
     private boolean exitRequested = false;
+
 
     private final UnitType[] subPrograms = {
             UnitType.length(),
@@ -39,7 +41,11 @@ public class UserInterface {
         IO.println();
         if(choice < subPrograms.length)
         {
+            numberOfConversions++;
+            history.append(numberOfConversions);
+            history.append(". ");
             history.append(subPrograms[choice].handleRequest());
+            history.append("\n");
         }
         else {
             exitRequested = true;
@@ -83,7 +89,7 @@ public class UserInterface {
         IO.println("=== Conversion History ===");
         IO.print(history);
         IO.println(thickLine);
-
+        IO.println("Total conversions: " + numberOfConversions);
         IO.println("Goodbye!");
     }
 
