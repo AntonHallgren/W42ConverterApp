@@ -1,4 +1,3 @@
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -51,6 +50,7 @@ public class UserInterface {
             history.append(numberOfConversions);
             history.append(". ");
             history.append(subPrograms[choice].handleRequest());
+            history.append("\t at ");
             placeTimeStamp();
             history.append("\n");
         }
@@ -103,8 +103,9 @@ public class UserInterface {
     private void placeTimeStamp()
     {
         LocalDateTime time = LocalDateTime.now();
-        IO.println(time.format(dateTimeFormater));
-
+        String timeString = time.format(dateTimeFormater);
+        IO.println("Converted at " + timeString);
+        history.append(timeString);
     }
 
     public boolean isExitRequested() {
