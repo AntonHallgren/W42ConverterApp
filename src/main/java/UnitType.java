@@ -2,17 +2,17 @@ public class UnitType
 {
     private final String name;
     private final String type;//This variable needs a better name
-    private final Unit[] units;
+    //private final Unit[] units;
     private final UnitConverter[] converters;
 
-    private UnitType(String name, Unit[] units, UnitConverter[] converters) {
-        this(name, name, units, converters);
+    private UnitType(String name, UnitConverter[] converters) {
+        this(name, name, converters);
     }
 
-    private UnitType(String name, String type, Unit[] units, UnitConverter[] converters) {
+    private UnitType(String name, String type, UnitConverter[] converters) {
         this.name = name;
         this.type = type;
-        this.units = units;
+        //this.units = units;
         this.converters = converters;
     }
 
@@ -43,7 +43,7 @@ public class UnitType
                 new UnitConverter(units[0], units[1], 0.01),
                 new UnitConverter(units[1], units[2], 0.001)
                 };
-        return new UnitType(name, units, unitConverters);
+        return new UnitType(name, unitConverters);
     }
 
     public static UnitType weight()
@@ -57,7 +57,7 @@ public class UnitType
                 new UnitConverter(units[0], units[1], 1000),
                 new UnitConverter(units[0], units[2], 2.20462)
         };
-        return new UnitType(name, units, unitConverters);
+        return new UnitType(name, unitConverters);
     }
 
     public static UnitType time()
@@ -71,7 +71,7 @@ public class UnitType
                 new UnitConverter(units[0], units[1], 60),
                 new UnitConverter(units[1], units[2], 60)
         };
-        return new UnitType(name, units, unitConverters);
+        return new UnitType(name, unitConverters);
     }
 
 
