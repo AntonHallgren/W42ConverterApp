@@ -31,7 +31,7 @@ public class UserInterface {
     {
         printOptionsList();
         IO.println(thickLine);
-        int choice = Integer.parseInt(IO.readln("Choose an option: "));
+        int choice = inputInt("Choose an option: ");
         IO.println();
         switch(choice)
         {
@@ -76,4 +76,20 @@ public class UserInterface {
     public boolean isExitRequested() {
         return exitRequested;
     }
+
+    public static int inputInt(String prompt)
+    {
+        while(true)
+        {
+            try{
+                return Integer.parseInt(IO.readln(prompt));
+            } catch (NumberFormatException e) {
+                IO.println("Invalid input. Please enter a number.");
+            }
+        }
+    }
+
+
+
+
 }

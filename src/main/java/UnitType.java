@@ -24,7 +24,7 @@ public class UnitType
         {
             IO.println((i+1) + ". " + converters[i].getName());
         }
-        int choice = Integer.parseInt(IO.readln("Your choice: ")) - 1;
+        int choice = UserInterface.inputInt("Your choice: ") - 1;
         UnitConverter selected = converters[choice];
         double in = Double.parseDouble(IO.readln(String.format("Enter %s in %s: ", name2, selected.in.fullName)));
         double result = selected.convert(in);
