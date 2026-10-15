@@ -12,7 +12,7 @@ public class UserInterface {
     private boolean exitRequested = false;
 
 
-    private final UnitType[] subPrograms = {
+    private final SubProgram[] subPrograms = {
             UnitType.length(),
             UnitType.weight(),
             UnitType.time(),

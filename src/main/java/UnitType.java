@@ -1,4 +1,4 @@
-public class UnitType
+public class UnitType implements SubProgram
 {
     private final String name;
     private final String type;//This variable needs a better name
@@ -33,6 +33,7 @@ public class UnitType
         return resultString;
     }
 
+    @Override
     public String extendedName()
     {
         return name + " Converter";
