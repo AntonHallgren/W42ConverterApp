@@ -15,7 +15,8 @@ public class UserInterface {
     private final UnitType[] subPrograms = {
             UnitType.length(),
             UnitType.weight(),
-            UnitType.time()
+            UnitType.time(),
+            UnitType.temperature()
     };
 
     private final StringBuilder history = new StringBuilder();

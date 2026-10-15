@@ -91,11 +91,11 @@ public class UnitType
         UnitConverter[] unitConverters = {
                 new UnitConverter(units[0], units[1], 9.0/5.0, 32),
                 null,
-                new UnitConverter(units[0], units[1], 1, 273.15),
+                new UnitConverter(units[0], units[2], 1, 273.15),
                 null
         };
         unitConverters[1] = unitConverters[0].invert();
-        unitConverters[3] = unitConverters[1].invert();
+        unitConverters[3] = unitConverters[2].invert();
         return new UnitType(name, unitConverters);
     }
 }
