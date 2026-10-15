@@ -5,15 +5,17 @@ public class UserInterface {
 
     private boolean exitRequested = false;
 
-    private UnitType length = UnitType.Length();
+    private final UnitType length = UnitType.Length();
 
 
     public void singleSession()
     {
         printTitle();
         askOption();
-        length.handleRequest();
-        askContinue();
+        if(!exitRequested)
+        {
+            askContinue();
+        }
     }
 
     private void printTitle()
@@ -27,13 +29,21 @@ public class UserInterface {
     {
         printOptionsList();
         IO.println(thickLine);
+        int choice = Integer.parseInt(IO.readln("Choose an option: "));
+        switch(choice)
+        {
+            case 1 -> length.handleRequest();
+            case 4 -> exitRequested = true;
+        }
+
 
 
     }
 
     private void printOptionsList()
     {
-
+        IO.println("1. Length Converter");
+        IO.println("4. Exit");
     }
 
     private void askContinue()
