@@ -6,11 +6,11 @@ public class UserInterface {
     private boolean exitRequested = false;
 
 
+
     public void singleSession()
     {
         printTitle();
-        //TODO print list of conversions
-        //TODO ask for Option
+        askOption();
         //TODO perform conversion, expand on this
         askContinue();
     }
@@ -20,6 +20,19 @@ public class UserInterface {
         IO.println(thickLine);
         IO.println(title);
         IO.println(thickLine);
+    }
+
+    private void askOption()
+    {
+        printOptionsList();
+        IO.println(thickLine);
+
+
+    }
+
+    private void printOptionsList()
+    {
+
     }
 
     private void askContinue()
