@@ -5,5 +5,5 @@ void main() {
     {
         ui.singleSession();
     }
-
+    IO.println("Goodbye!");
 }
