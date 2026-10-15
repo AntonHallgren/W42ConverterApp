@@ -31,14 +31,14 @@ public class UserInterface {
     {
         printOptionsList();
         IO.println(thickLine);
-        int choice = inputInt("Choose an option: ");
+        int choice = pickOption("Choose an option: ", 4);
         IO.println();
         switch(choice)
         {
-            case 1 -> length.handleRequest();
-            case 2 -> weight.handleRequest();
-            case 3 -> time.handleRequest();
-            case 4 -> exitRequested = true;
+            case 0 -> length.handleRequest();
+            case 1 -> weight.handleRequest();
+            case 2 -> time.handleRequest();
+            case 3 -> exitRequested = true;
         }
 
 
@@ -75,6 +75,19 @@ public class UserInterface {
 
     public boolean isExitRequested() {
         return exitRequested;
+    }
+
+    public static int pickOption(String prompt, int numberOfOptions)
+    {
+        while(true)
+        {
+            int input = inputInt(prompt);
+            if(input > 0 && input <= numberOfOptions)
+            {
+                return input-1;
+            }
+            IO.println(String.format("Invalid input. Please enter a number between 1 and %d. ", numberOfOptions));
+        }
     }
 
     public static int inputInt(String prompt)
