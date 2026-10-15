@@ -5,13 +5,14 @@ public class UserInterface {
 
     private boolean exitRequested = false;
 
+    private UnitType length = UnitType.Length();
 
 
     public void singleSession()
     {
         printTitle();
         askOption();
-        //TODO perform conversion, expand on this
+        length.handleRequest();
         askContinue();
     }
 

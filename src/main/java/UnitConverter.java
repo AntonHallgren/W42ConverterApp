@@ -1,7 +1,7 @@
 public class UnitConverter
 {
-    private final Unit in;
-    private final Unit out;
+    public final Unit in;
+    public final Unit out;
     private final double mult;
 
 
