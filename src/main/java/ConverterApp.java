@@ -1,6 +1,9 @@
 void main() {
 
     UserInterface ui = new UserInterface();
-    ui.singleSession();
+    while(!ui.isExitRequested())
+    {
+        ui.singleSession();
+    }
 
 }
