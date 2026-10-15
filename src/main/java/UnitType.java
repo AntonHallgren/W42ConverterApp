@@ -10,6 +10,8 @@ public class UnitType
         this.converters = converters;
     }
 
+
+
     public static UnitType Length()
     {
         String name = "Length";
@@ -17,7 +19,10 @@ public class UnitType
                 new Unit("cm", "centimeters"),
                 new Unit("m", "meters"),
                 new Unit("km", "kilometers")};
-        UnitConverter[] unitConverters = {};
+        UnitConverter[] unitConverters = {
+                new UnitConverter(units[0], units[1], 0.01),
+                new UnitConverter(units[1], units[2], 0.001)
+                };
         return new UnitType(name, units, unitConverters);
     }
 
