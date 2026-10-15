@@ -32,6 +32,7 @@ public class UserInterface {
         printOptionsList();
         IO.println(thickLine);
         int choice = Integer.parseInt(IO.readln("Choose an option: "));
+        IO.println();
         switch(choice)
         {
             case 1 -> length.handleRequest();
@@ -54,10 +55,15 @@ public class UserInterface {
 
     private void askContinue()
     {
+        IO.println();
         String continueAnswer = IO.readln("Continue? (yes/ no): ");
         switch (continueAnswer.toLowerCase())
         {
-            case "yes", "y" -> exitRequested = false;
+            case "yes", "y" ->
+            {
+                exitRequested = false;
+                IO.println();
+            }
             case "no", "n" -> exitRequested = true;
             default ->
             {

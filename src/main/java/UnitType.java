@@ -22,7 +22,7 @@ public class UnitType
         UnitConverter selected = converters[choice];
         double in = Double.parseDouble(IO.readln(String.format("Enter %s in %s: ", name, selected.in.fullName)));
         double result = selected.convert(in);
-        IO.println(String.format("Result: %.2f %s = %.2f %s", in, selected.in.shortName, result, selected.out.shortName));
+        IO.println(String.format("Result: %s = %s", selected.in.writeValue(in), selected.out.writeValue(result)));
     }
 
 
@@ -58,9 +58,9 @@ public class UnitType
     {
         String name = "Time";
         Unit[] units = {
-                new Unit("h", "Hours"),
-                new Unit("min", "Minutes"),
-                new Unit("sec", "Seconds")};
+                new Unit("h", "Hours", false),
+                new Unit("min", "Minutes", false),
+                new Unit("sec", "Seconds", false)};
         UnitConverter[] unitConverters = {
                 new UnitConverter(units[0], units[1], 60),
                 new UnitConverter(units[1], units[2], 60)
