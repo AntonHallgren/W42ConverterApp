@@ -89,6 +89,18 @@ public class UserInterface {
         }
     }
 
+    public static double inputDouble(String prompt)
+    {
+        while(true)
+        {
+            try{
+                return Double.parseDouble(IO.readln(prompt));
+            } catch (NumberFormatException e) {
+                IO.println("Invalid input. Please enter a number.");
+            }
+        }
+    }
+
 
 
 

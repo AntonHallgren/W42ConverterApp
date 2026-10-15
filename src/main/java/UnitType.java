@@ -26,7 +26,7 @@ public class UnitType
         }
         int choice = UserInterface.inputInt("Your choice: ") - 1;
         UnitConverter selected = converters[choice];
-        double in = Double.parseDouble(IO.readln(String.format("Enter %s in %s: ", name2, selected.in.fullName)));
+        double in = UserInterface.inputDouble(String.format("Enter %s in %s: ", name2, selected.in.fullName));
         double result = selected.convert(in);
         IO.println(String.format("Result: %s = %s", selected.in.writeValue(in), selected.out.writeValue(result)));
     }
