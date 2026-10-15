@@ -5,7 +5,9 @@ public class UserInterface {
 
     private boolean exitRequested = false;
 
-    private final UnitType length = UnitType.Length();
+    private final UnitType length = UnitType.length();
+    private final UnitType weight = UnitType.weight();
+    private final UnitType time = UnitType.time();
 
 
     public void singleSession()
@@ -33,6 +35,8 @@ public class UserInterface {
         switch(choice)
         {
             case 1 -> length.handleRequest();
+            case 2 -> weight.handleRequest();
+            case 3 -> time.handleRequest();
             case 4 -> exitRequested = true;
         }
 
@@ -43,6 +47,8 @@ public class UserInterface {
     private void printOptionsList()
     {
         IO.println("1. Length Converter");
+        IO.println("2. Weight Converter");
+        IO.println("3. Time Converter");
         IO.println("4. Exit");
     }
 

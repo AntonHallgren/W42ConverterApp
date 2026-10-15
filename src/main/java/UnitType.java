@@ -26,7 +26,7 @@ public class UnitType
     }
 
 
-    public static UnitType Length()
+    public static UnitType length()
     {
         String name = "Length";
         Unit[] units = {
@@ -40,6 +40,33 @@ public class UnitType
         return new UnitType(name, units, unitConverters);
     }
 
+    public static UnitType weight()
+    {
+        String name = "Weight";
+        Unit[] units = {
+                new Unit("kg", "Kilograms"),
+                new Unit("g", "Grams"),
+                new Unit("lb", "Pounds")};
+        UnitConverter[] unitConverters = {
+                new UnitConverter(units[0], units[1], 1000),
+                new UnitConverter(units[0], units[2], 2.20462)
+        };
+        return new UnitType(name, units, unitConverters);
+    }
+
+    public static UnitType time()
+    {
+        String name = "Time";
+        Unit[] units = {
+                new Unit("h", "Hours"),
+                new Unit("min", "Minutes"),
+                new Unit("sec", "Seconds")};
+        UnitConverter[] unitConverters = {
+                new UnitConverter(units[0], units[1], 60),
+                new UnitConverter(units[1], units[2], 60)
+        };
+        return new UnitType(name, units, unitConverters);
+    }
 
 
 }
