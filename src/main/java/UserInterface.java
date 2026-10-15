@@ -16,6 +16,7 @@ public class UserInterface {
         askOption();
         if(!exitRequested)
         {
+            IO.println();
             askContinue();
         }
     }
@@ -55,20 +56,23 @@ public class UserInterface {
 
     private void askContinue()
     {
-        IO.println();
-        String continueAnswer = IO.readln("Continue? (yes/ no): ");
-        switch (continueAnswer.toLowerCase())
+        while(true)
         {
-            case "yes", "y" ->
+            String continueAnswer = IO.readln("Continue? (yes/ no): ");
+            switch (continueAnswer.toLowerCase())
             {
-                exitRequested = false;
-                IO.println();
-            }
-            case "no", "n" -> exitRequested = true;
-            default ->
-            {
-                exitRequested = true;
-                IO.println("Invalid input");
+                case "yes", "y" ->
+                {
+                    exitRequested = false;
+                    IO.println();
+                    return;
+                }
+                case "no", "n" ->
+                {
+                    exitRequested = true;
+                    return;
+                }
+                default -> IO.println("Invalid input");
             }
         }
     }
