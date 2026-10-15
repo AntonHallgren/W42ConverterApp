@@ -16,7 +16,8 @@ public class UserInterface {
             UnitType.length(),
             UnitType.weight(),
             UnitType.time(),
-            UnitType.temperature()
+            UnitType.temperature(),
+            UnitType.currency()
     };
 
     private final StringBuilder history = new StringBuilder();

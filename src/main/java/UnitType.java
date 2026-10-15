@@ -98,4 +98,19 @@ public class UnitType
         unitConverters[3] = unitConverters[2].invert();
         return new UnitType(name, unitConverters);
     }
+
+    public static UnitType currency()
+    {
+        String name = "Currency";
+        Unit[] units = {
+                new Unit("SEK", "SEK"),
+                new Unit("EUR", "EUR"),
+                new Unit("USD", "USD")
+        };
+        UnitConverter[] converters = {
+                new UnitConverter(units[0], units[1], 1.0/10.87),
+                new UnitConverter(units[0], units[2], 1.0/11.32)
+        };
+        return new UnitType(name, "amount", converters);
+    }
 }
