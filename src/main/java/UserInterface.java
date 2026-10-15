@@ -1,7 +1,13 @@
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class UserInterface {
 
     private static final String thickLine = "=============================";
     private static final String title = "\tLEXICON CONVERTER APP";
+
+    private static final DateTimeFormatter dateTimeFormater = DateTimeFormatter.ofPattern("yyyy-MM-dd kk:mm:ss");
 
     private int numberOfConversions = 0;
     private boolean exitRequested = false;
@@ -45,6 +51,7 @@ public class UserInterface {
             history.append(numberOfConversions);
             history.append(". ");
             history.append(subPrograms[choice].handleRequest());
+            placeTimeStamp();
             history.append("\n");
         }
         else {
@@ -91,6 +98,13 @@ public class UserInterface {
         IO.println(thickLine);
         IO.println("Total conversions: " + numberOfConversions);
         IO.println("Goodbye!");
+    }
+
+    private void placeTimeStamp()
+    {
+        LocalDateTime time = LocalDateTime.now();
+        IO.println(time.format(dateTimeFormater));
+
     }
 
     public boolean isExitRequested() {
