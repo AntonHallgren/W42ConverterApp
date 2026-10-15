@@ -80,5 +80,17 @@ public class UnitType
         return new UnitType(name, unitConverters);
     }
 
+    public static UnitType temperature()
+    {
+        String name = "Temperature";
+        Unit[] units = {
+                new Unit("C", "Celsius", true, -273.15),
+                new Unit("F", "Fahrenheit", true, -459.67),
+                new Unit("K", "Kelvin")
+        };
+        UnitConverter[] unitConverters = {
 
+        };
+        return new UnitType(name, unitConverters);
+    }
 }
