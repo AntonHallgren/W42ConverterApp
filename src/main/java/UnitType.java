@@ -1,17 +1,17 @@
 public class UnitType
 {
     private final String name;
-    private final String name2;//This variable needs a better name
+    private final String type;//This variable needs a better name
     private final Unit[] units;
     private final UnitConverter[] converters;
 
     private UnitType(String name, Unit[] units, UnitConverter[] converters) {
-        this(name, name.toLowerCase(), units, converters);
+        this(name, name, units, converters);
     }
 
-    private UnitType(String name, String name2, Unit[] units, UnitConverter[] converters) {
+    private UnitType(String name, String type, Unit[] units, UnitConverter[] converters) {
         this.name = name;
-        this.name2 = name2;
+        this.type = type;
         this.units = units;
         this.converters = converters;
     }
@@ -26,7 +26,7 @@ public class UnitType
         }
         int choice = UserInterface.pickOption("Your choice: ", converters.length);
         UnitConverter selected = converters[choice];
-        double in = UserInterface.inputDouble(String.format("Enter %s in %s: ", name2, selected.in.fullName));
+        double in = selected.in.enterValue(type);
         double result = selected.convert(in);
         IO.println(String.format("Result: %s = %s", selected.in.writeValue(in), selected.out.writeValue(result)));
     }

@@ -5,6 +5,9 @@ public class Unit
 
     public final boolean useDecimals;
 
+    //for now, 0 is the min for all relevant units. This may change with temperature, but it seems like everything will have a min value
+    private final double minValue = 0;
+
     public Unit(String shortName, String fullName) {
         this(shortName, fullName, true);
     }
@@ -18,6 +21,19 @@ public class Unit
     public String writeValue(double value)
     {
         return String.format(useDecimals ? "%.2f %s" : "%.0f %s", value, shortName);
+    }
+
+    public double enterValue(String type)
+    {
+        while(true)
+        {
+            double input = UserInterface.inputDouble(String.format("Enter %s in %s: ", type.toLowerCase(), fullName));
+            if(input >= minValue)
+            {
+                return  input;
+            }
+            IO.println(String.format("Invalid input. %s cannot be less than %s", type, writeValue(minValue)));
+        }
     }
 
 }
