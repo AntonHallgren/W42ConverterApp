@@ -16,7 +16,7 @@ public class UnitType
         this.converters = converters;
     }
 
-    public void handleRequest()
+    public String handleRequest()
     {
         IO.println("--- " + name + " Converter ---");
         IO.println("Convert:");
@@ -28,7 +28,9 @@ public class UnitType
         UnitConverter selected = converters[choice];
         double in = selected.in.enterValue(type);
         double result = selected.convert(in);
-        IO.println(String.format("Result: %s = %s", selected.in.writeValue(in), selected.out.writeValue(result)));
+        String resultString = String.format("%s = %s", selected.in.writeValue(in), selected.out.writeValue(result));
+        IO.println("Result " + resultString);
+        return resultString;
     }
 
 

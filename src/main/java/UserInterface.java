@@ -9,6 +9,7 @@ public class UserInterface {
     private final UnitType weight = UnitType.weight();
     private final UnitType time = UnitType.time();
 
+    private final StringBuilder history = new StringBuilder();
 
     public void singleSession()
     {
@@ -36,9 +37,9 @@ public class UserInterface {
         IO.println();
         switch(choice)
         {
-            case 0 -> length.handleRequest();
-            case 1 -> weight.handleRequest();
-            case 2 -> time.handleRequest();
+            case 0 -> history.append(length.handleRequest());
+            case 1 -> history.append(weight.handleRequest());
+            case 2 -> history.append(time.handleRequest());
             case 3 -> exitRequested = true;
         }
 
